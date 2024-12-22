@@ -13,13 +13,13 @@ func main() {
 	})
 
 	// Repositories
-	EventRepository := repositories.NewEventRepository(nil)
+	eventRepository := repositories.NewEventRepository(nil)
 
 	// Routing
 	server := app.Group("/api")
 
 	// Handlers
-	handlers.NewEventHandler(server.Group("/events"), EventRepository)
+	handlers.NewEventHandler(server.Group("/event"), eventRepository)
 
 	app.Listen(":3000")
 }
